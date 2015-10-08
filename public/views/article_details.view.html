@@ -1,0 +1,10 @@
+<div class="row" ng-controller="ArticleDetailsCtrl">
+  <div class="article well">
+    <h3>{{article.title}}</h3>
+    <p>{{article.body}}</p>
+    <a href="{{article.link}}">{{article.link}}</a>
+  </div>
+  <a class="btn btn-default" href="#/articles/edit/{{article._id}}">Edit</a>
+  <a class="btn btn-danger" ng-click="removeArticle()">Delete</a>
+
+</div>

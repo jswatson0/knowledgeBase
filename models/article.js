@@ -42,7 +42,38 @@ module.exports.getArticlesByCategory = function(category, callback){
   Article.find(query, callback);
 };
 
-// Add
+// create Article
+module.exports.createArticle = function(newArticle, callback){
+  newArticle.save(callback);
+};
+
+// update Article
+module.exports.updateArticle = function(id, data, callback){
+  var title = data.title;
+  var body = data.body;
+  var category = data.category;
+  var link = data.link;
+
+  var query = {id:id};
+
+  Article.findById(id, function(err, article){
+    if(!article){
+      return next(new Error("Can't find article."));
+    } else {
+      article.title = title;
+      article.body = body;
+      article.category = category;
+      article.link = link;
+
+      article.save(callback);
+    }
+  })
+};
+
+// Remove article
+module.exports.removeArticle = function(id, callback){
+  Article.find({_id: id}).remove(callback);
+};
 
 
 

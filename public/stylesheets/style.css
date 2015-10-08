@@ -1,8 +1,52 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html, body {
+  height: 100%;
 }
 
-a {
-  color: #00B7FF;
+#wrap {
+  min-height: 100%;
+}
+
+.navbar{
+  background: gainsboro;
+}
+
+#main {
+  overflow:auto;
+  padding-bottom:50px; /* this needs to be bigger than footer height*/
+}
+
+.footer {
+  position: relative;
+  margin-top: -60px; /* negative value of footer height */
+  height: 60px;
+  clear:both;
+  background-color: #2f6fad;
+  padding: 20px;
+}
+
+.heading{
+  background: grey;
+  color: #fff;
+  padding: 5px;
+}
+
+.article{
+  padding:10px;
+  border-bottom: solid 1px gold;
+}
+
+.article:hover{
+  background: gainsboro;
+}
+
+form{
+  margin-bottom: 35px;
+}
+
+.row{
+  margin-bottom: 35px;
+}
+
+.remove{
+  float: right;
 }

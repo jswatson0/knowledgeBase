@@ -1,0 +1,16 @@
+<a href="#/categories">Back</a>
+<h3 class="heading">Latest Articles</h3>
+<div ng-controller="ArticlesCategoryCtrl">
+  <div class="row">
+    <div class="articles">
+      <div ng-repeat="article in categoryArticles">
+        <div class="article col-md-12">
+          <a href="#/articles/{{article._id}}"><h4>{{article.title}}</h4></a>
+          <p>{{article.body}}</p>
+          <a href="{{article.link}}">{{article.link}}</a>
+          <!--<a href="#/articles/{{category.name}}">View Articles</a>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

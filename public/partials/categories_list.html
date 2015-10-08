@@ -1,0 +1,14 @@
+<h3 class="heading">Categories</h3>
+<div ng-controller="CategoriesCtrl">
+  <div class="row">
+    <div class="categories">
+      <div ng-repeat="category in categories">
+        <div class="category col-md-3">
+          <h3>{{category.name}}</h3>
+          <p>{{category.description}}</p>
+          <a href="#/articles/category/{{category.name}}">View Articles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
