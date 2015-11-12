@@ -1,10 +1,18 @@
 angular.module('kB')
 
 // get all articles
-.controller('ArticlesCtrl',['$scope', '$http', function($scope, $http){
-  $http.get('/articles').success(function(data){
-    $scope.articles = data;
-  });
+.controller('ArticlesCtrl',['$scope', '$http', '$location', function($scope, $http, $location){
+    $http.get('/articles').success(function(data){
+      $scope.articles = data;
+    });
+
+    $scope.deleteArticle = function(articleId){
+      $http.delete('/articles/' + articleId).success(function(data){
+        console.log(data);
+      });
+      $location.path('/articles')
+    };
+
 }])
 
 // get article by cat
@@ -15,18 +23,18 @@ angular.module('kB')
 }])
 
 // get article
-  .controller('ArticleDetailsCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
-    $http.get('/articles/' + $routeParams.id).success(function(data){
-      $scope.article = data;
-    });
+.controller('ArticleDetailsCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
+  $http.get('/articles/' + $routeParams.id).success(function(data){
+    $scope.article = data;
+  });
 
-    $scope.removeArticle = function(){
-      $http.delete('/articles/' + $routeParams.id).success(function(data){
-        console.log(data);
-      });
-      $location.path('/articles')
-    }
-  }])
+  $scope.removeArticle = function(){
+    $http.delete('/articles/' + $routeParams.id).success(function(data){
+      console.log(data);
+    });
+    $location.path('/categories')
+  }
+}])
 
 .controller('ArticleCreateCtrl', ['$scope', '$http', '$routeParams', '$location', function($scope, $http, $routeParams, $location){
   $http.get('/categories').success(function(data){

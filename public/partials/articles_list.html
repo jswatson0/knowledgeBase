@@ -9,9 +9,7 @@
             <p>{{article.body}}</p>
             <a href="{{article.link}}">{{article.link}}</a>
           </div>
-          <div ng-controller="ArticleDetailsCtrl">
-            <a class="btn btn-danger btn-sm remove" ng-click="removeArticle()">X</a>
-          </div>
+          <a class="btn btn-danger btn-sm remove" data="{{article._id}}" ng-click="deleteArticle(article._id)">X</a>
         </div>
       </div>
     </div>
